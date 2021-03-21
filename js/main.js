@@ -15,9 +15,6 @@ function refranceElement(elemnetId) {
     return document.getElementById(elemnetId);
 }
 
-function inputRefracne(inputName) {
-    return document.forms["contact-form"][inputName];
-}
 
 // Retrieving the values of form elements
 const firstName = inputRefracne("first-name");
@@ -56,7 +53,17 @@ function validation(refranceElement, eventListener, className) {
 }
 
 function validation(refranceElement, className) {
-    validation(refranceElement, "onSubmit", className)
+    // if the value of the element is empty
+    if (refranceElement.value === "") {
+        // we add error class to the element
+        refranceElement.classList.add(className);
+    } else if (refranceElement.validity.patternMismatch) {
+        // if the user enter invalid pattern 
+        refranceElement.classList.add(className);
+    } else {
+        // if the field is valid, we remove the error message.
+        refranceElement.classList.remove(className);
+    }
 }
 
 
@@ -92,33 +99,14 @@ validation(companySize, 'focusout', 'company-size-error');
 
 function validateForm(e) {
     e.preventDefault()
-
     validation(firstName, 'error');
-    validation(firstName, 'error');
-
     validation(lastName, 'error');
-    validation(lastName, 'error');
-
     validation(email, 'error');
-    validation(email, 'error');
-
     validation(phoneNumber, 'error');
-    validation(phoneNumber, 'error');
-
     validation(companyName, 'error');
-    validation(companyName, 'error');
-
-
     validation(companyWebsite, 'error');
-    validation(companyWebsite, 'error');
-
-
     validation(jobTitle, 'error');
-    validation(jobTitle, 'error');
-
     validation(companySize, 'company-size-error');
-    validation(companySize, 'company-size-error');
-
 }
 
 
