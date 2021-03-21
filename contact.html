@@ -5,25 +5,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="https://www.webprofits.com.au/assets2020/images/favicon.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://www.webprofits.com.au/assets2020/images/favicon.png"
+        sizes="16x16" />
     <link rel="icon" type="image/png" href="https://www.webprofits.com.au/assets2020/images/favicon32.png"
-        sizes="32x32">
+        sizes="32x32" />
     <link rel="icon" type="image/png" href="https://www.webprofits.com.au/assets2020/images/favicon64.png"
-        sizes="64x64">
+        sizes="64x64" />
     <title>Digital Growth Consultancy - Webprofits</title>
 
     <script src="https://kit.fontawesome.com/e0aa2cfcac.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/style.css" />
-
 </head>
 
 <body>
     <div id="overlay">
         <nav>
             <div class="top-navbar-screen">
-                <div class="logo-small">
-
-                </div>
+                <div class="logo-small"></div>
                 <span class="icon" onclick="closeNav()">
                     <i class="fas fa-times fa-2x"></i>
                 </span>
@@ -71,57 +69,59 @@
             <div class="inner-content-contact">
                 <article class="header-section header-contact-content">
                     <h1>Let's talk</h1>
-                    <h4>Fill out the form and we'll come to you, or give us a call to get in touch directly.</h4>
+                    <h4>
+                        Fill out the form and we'll come to you, or give us a call to get
+                        in touch directly.
+                    </h4>
 
                     <div class="above-address">
                         <div class="addressBox">
                             <h5>SYDNEY</h5>
-                            <p>L28, 161 Castlereagh Street <br>Sydney <br>NSW 2000</p>
+                            <p>L28, 161 Castlereagh Street <br />Sydney <br />NSW 2000</p>
                             <p>P: +61 2 8806 6800</p>
                         </div>
                         <div class="addressBox">
                             <h5>MELBOURNE</h5>
-                            <p>L1, 145 Russell Street <br>Melbourne <br>VIC 3000</p>
+                            <p>L1, 145 Russell Street <br />Melbourne <br />VIC 3000</p>
                             <p>P: +61 3 8488 7821</p>
                         </div>
                     </div>
                 </article>
 
                 <article class="form">
-                    <form name="contact-form" action="#" method="post" onsubmit="return validateForm()">
-
+                    <form name="contact-form" action="#" method="post" onsubmit="return validateForm()" novalidate>
                         <div class="two-columns">
                             <div class="first-name style-inputs left">
                                 <div class="labels">
                                     <label for="first-name"><span>First name</span></label>
                                 </div>
                                 <!-- onchange="removeError(this.id)" -->
-                                <input class="input-class style-inputs" type="text" name="first-name" id="first-name">
+                                <input class="input-class style-inputs" type="text" pattern="[a-zA-Z]{3,25}"
+                                    name="first-name" id="first-name" />
                             </div>
                             <div class="last-name style-inputs right">
                                 <div class="labels">
                                     <label for="last-name"><span>Last name</span></label>
                                 </div>
-                                <input type="text" class="input-class style-inputs" name="last-name" id="last-name">
+                                <input type="text" class="input-class style-inputs" pattern="[a-zA-Z]{3,25}"
+                                    name="last-name" id="last-name" />
                             </div>
-
                         </div>
 
                         <div class="two-columns">
                             <div class="email style-inputs left">
                                 <div class="labels">
-
                                     <label for="email"><span>Email</span></label>
                                 </div>
-                                <input type="email" class="input-class style-inputs" name="email" id="email">
+                                <input type="email" class="input-class style-inputs" name="email" id="email" />
                             </div>
                             <div class="phone-number style-inputs right">
                                 <div class="labels">
-
                                     <label for="phone-number"><span>Phone number</span></label>
                                 </div>
-                                <input type="tel" class="input-class style-inputs" name="phone-number"
-                                    id="phone-number">
+                                <input type="tel" class="input-class style-inputs"
+                                    pattern="[+]?[0-9]{3}?[ ]?[0-9]{3}?[ ]?[0-9]{4}" name="phone-number"
+                                    id="phone-number" />
                             </div>
                         </div>
 
@@ -131,36 +131,30 @@
                                     <label for="company-name">
                                         <span>Company name</span>
                                     </label>
-
-
                                 </div>
-                                <input type="text" class="input-class style-inputs" name="company-name"
-                                    id="company-name-input">
+                                <input type="text" class="input-class style-inputs" pattern="[a-zA-Z]{3,25}"
+                                    name="company-name" id="company-name-input" />
                             </div>
                             <div class="company-website style-inputs right">
                                 <div class="labels">
                                     <label for="company-website">
                                         <span>Company Website</span>
                                     </label>
-
-
                                 </div>
-                                <input type="text" class="input-class style-inputs" name="company-website"
-                                    id="company-website">
+                                <input type="text" class="input-class style-inputs" pattern="[a-zA-Z]{3,25}"
+                                    name="company-website" id="company-website" />
                             </div>
                         </div>
 
                         <div class="two-columns">
                             <div class="job style-inputs left">
                                 <div class="labels">
-
                                     <label for="job-title">
-                                        <span>
-                                            Job title
-                                        </span>
+                                        <span> Job title </span>
                                     </label>
                                 </div>
-                                <input type="text" class="input-class style-inputs" name="job-title" id="job-title">
+                                <input type="text" class="input-class style-inputs" pattern="[a-zA-Z]{3,25}"
+                                    name="job-title" id="job-title" />
                             </div>
                             <div class="company-size style-inputs right">
                                 <div class="labels">
@@ -170,7 +164,9 @@
                                 </div>
                                 <select class="input-class style-inputs company-size" name="company-size"
                                     id="company-size-input">
-                                    <option value="" disabled="" selected="">Please select</option>
+                                    <option value="" disabled="" selected="">
+                                        Please select
+                                    </option>
                                     <option value="1-10 Employees">1-10 Employees</option>
                                     <option value="11-50 Employees">11-50 Employees</option>
                                     <option value="51-250 Employees">51-250 Employees</option>
@@ -178,7 +174,9 @@
                                     <option value="1k-5k Employees">1k-5k Employees</option>
                                     <option value="5k-10k Employees">5k-10k Employees</option>
                                     <option value="10k-50k Employees">10k-50k Employees</option>
-                                    <option value="50k-100k Employees">50k-100k Employees</option>
+                                    <option value="50k-100k Employees">
+                                        50k-100k Employees
+                                    </option>
                                     <option value="100k+ Employees">100k+ Employees</option>
                                 </select>
                             </div>
@@ -187,23 +185,19 @@
                         <div class="other style-inputs">
                             <div class="labels">
                                 <label for="other">
-                                    <span>
-                                        Anything else we should know? (Optional)
-                                    </span>
+                                    <span> Anything else we should know? (Optional) </span>
                                 </label>
                             </div>
                             <textarea name="other" class="input-class style-inputs" id="other"></textarea>
                         </div>
                         <div class="style-inputs">
-                            <input type="submit" value="Request a call back" class="btn ">
-
+                            <input type="submit" value="Request a call back" class="btn" />
+                            <!-- <button type="submit" onclick="validateForm()" value="Request a call back" class="btn "></button> -->
                         </div>
-
                     </form>
                     <div class="privacy-text">
                         <p>We respect your privacy</p>
                     </div>
-
                 </article>
             </div>
 
@@ -219,7 +213,6 @@
                     <p>P: +61 3 8488 7821</p>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -227,7 +220,7 @@
         <div class="content">
             <div class="partnar-content">
                 <h5>We are premier partners with</h5>
-                <img src="/images/partnersLogos4.png" alt="">
+                <img src="/images/partnersLogos4.png" alt="" />
             </div>
         </div>
     </section>
@@ -235,7 +228,10 @@
     <footer class="footer contact">
         <div class="content">
             <img src="/images/fLogoLight@2x.png" alt="" />
-            <p>&copy; 2020 Webprofits. All Rights Reserved. <span><a href="#">Privacy Policy</a></span></p>
+            <p>
+                &copy; 2020 Webprofits. All Rights Reserved.
+                <span><a href="#">Privacy Policy</a></span>
+            </p>
         </div>
     </footer>
 
