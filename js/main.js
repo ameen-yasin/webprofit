@@ -36,9 +36,9 @@ function validation(refranceElement, eventListener, className) {
             alert("entered");
             // we add error class to the element if the user didnt enter anything
             refranceElement.classList.add(className);
-            // } else if (refranceElement.validity.patternMismatch) {
-            //     // if the user enter invalid pattern 
-            //     refranceElement.classList.add(className);
+        } else if (refranceElement.validity.patternMismatch) {
+            // if the user enter invalid pattern 
+            refranceElement.classList.add(className);
         } else {
             // if the field is valid, we remove the error message.
             refranceElement.classList.remove(className);
