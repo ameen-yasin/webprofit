@@ -113,14 +113,15 @@
                                 <div class="labels">
                                     <label for="email"><span>Email</span></label>
                                 </div>
-                                <input type="email" class="input-class style-inputs" name="email" id="email" />
+                                <input type="email" class="input-class style-inputs" pattern="^\S+@\S+\.\S+$"
+                                    name="email" id="email" />
                             </div>
                             <div class="phone-number style-inputs right">
                                 <div class="labels">
                                     <label for="phone-number"><span>Phone number</span></label>
                                 </div>
                                 <input type="tel" class="input-class style-inputs"
-                                    pattern="[+]?[0-9]{3}?[ ]?[0-9]{3}?[ ]?[0-9]{4}" name="phone-number"
+                                    pattern="[+]?[0-9]{3,}?[ ]?[0-9]{3,}?[ ]?[0-9]{3,}" name="phone-number"
                                     id="phone-number" />
                             </div>
                         </div>
@@ -141,11 +142,11 @@
                                         <span>Company Website</span>
                                     </label>
                                 </div>
-                                <input type="text" class="input-class style-inputs" pattern="[a-zA-Z]{3,25}"
+                                <input type="text" class="input-class style-inputs"
+                                    pattern="^((http[s]?://)?(www\.)?[a-zA-Z\-]{3,})[\\.]([a-z]{2,10})"
                                     name="company-website" id="company-website" />
                             </div>
                         </div>
-
                         <div class="two-columns">
                             <div class="job style-inputs left">
                                 <div class="labels">
