@@ -89,8 +89,7 @@ validation(companySize, 'focusout', 'company-size-error');
 
 
 
-function validateForm(e) {
-    e.preventDefault();
+function validateForm() {
     validationOnSubmit(firstName, 'error');
     validationOnSubmit(lastName, 'error');
     validationOnSubmit(email, 'error');
