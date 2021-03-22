@@ -10,30 +10,26 @@ function closeNav() {
 
 
 // Form Validation
-
+let isFormValid = true;
 // This fuction will retrn refrance of the html element
 function refranceElement(elemnetId) {
     return document.getElementById(elemnetId);
 }
 
-
 // Retrieving the values of form elements
-const firstName = inputRefracne("first-name");
-const lastName = inputRefracne("last-name");
-const email = inputRefracne("email");
-const phoneNumber = inputRefracne("phone-number");
-const companyName = inputRefracne("company-name");
-const companyWebsite = inputRefracne("company-website");
-const jobTitle = inputRefracne("job-title");
-const companySize = inputRefracne("company-size");
+const firstName = refranceElement("first-name");
+const lastName = refranceElement("last-name");
+const email = refranceElement("email");
+const phoneNumber = refranceElement("phone-number");
+const companyName = refranceElement("company-name-input");
+const companyWebsite = refranceElement("company-website");
+const jobTitle = refranceElement("job-title");
+const companySize = refranceElement("company-size-input");
 
 function validation(refranceElement, eventListener, className) {
     refranceElement.addEventListener(eventListener, () => {
-        // if the value of the element is empty\
-        alert("test");
-
+        // if the value of the element is empty
         if (refranceElement.value === "") {
-            alert("entered");
             // we add error class to the element if the user didnt enter anything
             refranceElement.classList.add(className);
         } else if (refranceElement.validity.patternMismatch) {
@@ -51,12 +47,15 @@ function validationOnSubmit(refranceElement, className) {
     if (refranceElement.value === "") {
         // we add error class to the element
         refranceElement.classList.add(className);
+        isFormValid = false;
     } else if (refranceElement.validity.patternMismatch) {
         // if the user enter invalid pattern 
         refranceElement.classList.add(className);
+        isFormValid = false
     } else {
         // if the field is valid, we remove the error message.
         refranceElement.classList.remove(className);
+        isFormValid = true;
     }
 }
 
@@ -90,18 +89,18 @@ validation(companySize, 'focusout', 'company-size-error');
 
 
 
-
-// function validateForm(e) {
-//     e.preventDefault()
-//     validationOnSubmit(firstName, 'error');
-//     validationOnSubmit(lastName, 'error');
-//     validationOnSubmit(email, 'error');
-//     validationOnSubmit(phoneNumber, 'error');
-//     validationOnSubmit(companyName, 'error');
-//     validationOnSubmit(companyWebsite, 'error');
-//     validationOnSubmit(jobTitle, 'error');
-//     validationOnSubmit(companySize, 'company-size-error');
-// }
+function validateForm(e) {
+    e.preventDefault();
+    validationOnSubmit(firstName, 'error');
+    validationOnSubmit(lastName, 'error');
+    validationOnSubmit(email, 'error');
+    validationOnSubmit(phoneNumber, 'error');
+    validationOnSubmit(companyName, 'error');
+    validationOnSubmit(companyWebsite, 'error');
+    validationOnSubmit(jobTitle, 'error');
+    validationOnSubmit(companySize, 'company-size-error');
+    return isFormValid;
+}
 
 
 // email.addEventListener('blur', () => {

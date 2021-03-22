@@ -89,14 +89,15 @@
                 </article>
 
                 <article class="form">
-                    <form name="contact-form" action="#" method="post" onsubmit="return validateForm()" novalidate>
+                    <form name="contact-form" action="#" method="post" onsubmit="return validateForm(this.event)"
+                        novalidate>
                         <div class="two-columns">
                             <div class="first-name style-inputs left">
                                 <div class="labels">
                                     <label for="first-name"><span>First name</span></label>
                                 </div>
                                 <!-- onchange="removeError(this.id)" -->
-                                <input class="input-class style-inputs" type="text" pattern="[a-zA-Z]{3,25}"
+                                <input type="text" class="input-class style-inputs" pattern="[a-zA-Z]{3,25}"
                                     name="first-name" id="first-name" />
                             </div>
                             <div class="last-name style-inputs right">
@@ -133,7 +134,7 @@
                                     </label>
                                 </div>
                                 <input type="text" class="input-class style-inputs" pattern="[a-zA-Z]{3,25}"
-                                    name="company-name" id="company-name-input" />
+                                    name="company-name-input" id="company-name-input" />
                             </div>
                             <div class="company-website style-inputs right">
                                 <div class="labels">
@@ -162,7 +163,7 @@
                                         <span>Company size</span>
                                     </label>
                                 </div>
-                                <select class="input-class style-inputs company-size" name="company-size"
+                                <select class="input-class style-inputs company-size" name="company-size-input"
                                     id="company-size-input">
                                     <option value="" disabled="" selected="">
                                         Please select
@@ -174,9 +175,7 @@
                                     <option value="1k-5k Employees">1k-5k Employees</option>
                                     <option value="5k-10k Employees">5k-10k Employees</option>
                                     <option value="10k-50k Employees">10k-50k Employees</option>
-                                    <option value="50k-100k Employees">
-                                        50k-100k Employees
-                                    </option>
+                                    <option value="50k-100k Employees">50k-100k Employees</option>
                                     <option value="100k+ Employees">100k+ Employees</option>
                                 </select>
                             </div>
@@ -192,7 +191,8 @@
                         </div>
                         <div class="style-inputs">
                             <input type="submit" value="Request a call back" class="btn" />
-                            <!-- <button type="submit" onclick="validateForm()" value="Request a call back" class="btn "></button> -->
+                            <!-- <button type="submit" onclick="validateForm()" value="Request a call back"
+                                class="btn ">Request a call back</button> -->
                         </div>
                     </form>
                     <div class="privacy-text">
