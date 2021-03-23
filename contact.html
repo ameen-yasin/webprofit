@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="/css/style.css" />
 </head>
 
-
 <body>
     <div id="overlay">
         <nav>
@@ -90,7 +89,7 @@
                 </article>
 
                 <article class="form">
-                    <form name="contact-form" method="POST" onsubmit="return validateForm()" novalidate>
+                    <form name="contact-form" id="form" method="POST">
                         <div class="two-columns">
                             <div class="first-name style-inputs left">
                                 <div class="labels">
@@ -108,7 +107,6 @@
                                     name="last-name" id="last-name" />
                             </div>
                         </div>
-
                         <div class="two-columns">
                             <div class="email style-inputs left">
                                 <div class="labels">
@@ -116,6 +114,7 @@
                                 </div>
                                 <input type="email" class="input-class style-inputs" pattern="^\S+@\S+\.\S+$"
                                     name="email" id="email" />
+                                <!-- ^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$ -->
                             </div>
                             <div class="phone-number style-inputs right">
                                 <div class="labels">
@@ -126,7 +125,6 @@
                                     id="phone-number" />
                             </div>
                         </div>
-
                         <div class="two-columns">
                             <div class="company-name style-inputs left">
                                 <div class="labels">
@@ -181,7 +179,6 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="other style-inputs">
                             <div class="labels">
                                 <label for="other">

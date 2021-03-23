@@ -1,4 +1,4 @@
-// the following two fucntion will open and colse 
+// the following two fucntion will open and colse
 // nav bar in spacific screen sizes
 function openNav() {
     document.getElementById("overlay").style.height = "100%";
@@ -8,14 +8,12 @@ function closeNav() {
     document.getElementById("overlay").style.height = "0%";
 }
 
-
-// Form Validation
-let isFormValid = true;
 // This fuction will retrn refrance of the html element
 function refranceElement(elemnetId) {
     return document.getElementById(elemnetId);
 }
 
+const form = refranceElement("form");
 // Retrieving the values of form elements
 const firstName = refranceElement("first-name");
 const lastName = refranceElement("last-name");
@@ -26,98 +24,52 @@ const companyWebsite = refranceElement("company-website");
 const jobTitle = refranceElement("job-title");
 const companySize = refranceElement("company-size-input");
 
-function validation(refranceElement, eventListener, className) {
-    refranceElement.addEventListener(eventListener, () => {
-        // if the value of the element is empty
-        if (refranceElement.value === "") {
-            // we add error class to the element if the user didnt enter anything
-            refranceElement.classList.add(className);
-        } else if (refranceElement.validity.patternMismatch) {
-            // if the user enter invalid pattern 
-            refranceElement.classList.add(className);
-        } else {
-            // if the field is valid, we remove the error message.
-            refranceElement.classList.remove(className);
-        }
-    });
-}
+// Each time the user types something, we check if the
+// form fields are valid.
+form.addEventListener('input', function (event) {
+    const item = event.target;
+    validation(item);
+});
 
-function validationOnSubmit(refranceElement, className) {
-    // if the value of the element is empty
-    if (refranceElement.value === "") {
-        // we add error class to the element
-        refranceElement.classList.add(className);
-        isFormValid = false;
-    } else if (refranceElement.validity.patternMismatch) {
-        // if the user enter invalid pattern 
-        refranceElement.classList.add(className);
-        isFormValid = false
-    } else {
-        // if the field is valid, we remove the error message.
+form.addEventListener('focusout', function (event) {
+    const item = event.target;
+    validation(item);
+});
+
+const fields = [
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    companyName,
+    companyWebsite,
+    jobTitle,
+    companySize
+];
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    fields.forEach(function (item) {
+        validation(item);
+    });
+});
+
+function validation(refranceElement, className) {
+    // get the pattern attribute from html element
+    let reg = new RegExp(refranceElement.getAttribute('pattern'));
+    const re = reg.test(refranceElement.value);
+    if (Object.is(re, true)) {
         refranceElement.classList.remove(className);
-        isFormValid = true;
+    } else {
+        refranceElement.classList.add(className);
     }
 }
 
+function validation(item) {
+    if (item.name === "company-size-input") {
+        validation(item, "company-size-error");
+    } else {
+        validation(item, "error");
+    }
 
-// Each time the user types something, we check if the
-// form fields are valid.
-validation(firstName, 'input', 'error');
-validation(firstName, 'focusout', 'error');
-
-validation(lastName, 'input', 'error');
-validation(lastName, 'focusout', 'error');
-
-validation(email, 'input', 'error');
-validation(email, 'focusout', 'error');
-
-validation(phoneNumber, 'input', 'error');
-validation(phoneNumber, 'focusout', 'error');
-
-validation(companyName, 'input', 'error');
-validation(companyName, 'focusout', 'error');
-
-validation(companyWebsite, 'input', 'error');
-validation(companyWebsite, 'focusout', 'error');
-
-
-validation(jobTitle, 'input', 'error');
-validation(jobTitle, 'focusout', 'error');
-
-validation(companySize, 'input', 'company-size-error');
-validation(companySize, 'focusout', 'company-size-error');
-
-
-
-function validateForm() {
-    validationOnSubmit(firstName, 'error');
-    validationOnSubmit(lastName, 'error');
-    validationOnSubmit(email, 'error');
-    validationOnSubmit(phoneNumber, 'error');
-    validationOnSubmit(companyName, 'error');
-    validationOnSubmit(companyWebsite, 'error');
-    validationOnSubmit(jobTitle, 'error');
-    validationOnSubmit(companySize, 'company-size-error');
-    return isFormValid;
 }
-
-
-// email.addEventListener('blur', () => {
-//     let regex =
-//         /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
-//     let s = email.value;
-//     if (regex.test(s)) {
-//         email.classList.remove(
-//             'is-invalid');
-//         emailError = true;
-//     }
-//     else {
-//         email.classList.add(
-//             'is-invalid');
-//         emailError = false;
-//     }
-// })
-
-//     // Set the styling appropriately
-//     emailError.className = 'error active';
-// }
