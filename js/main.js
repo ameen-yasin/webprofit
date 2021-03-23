@@ -28,12 +28,12 @@ const companySize = refranceElement("company-size-input");
 // form fields are valid.
 form.addEventListener('input', function (event) {
     const item = event.target;
-    validation(item);
+    validateElement(item);
 });
 
 form.addEventListener('focusout', function (event) {
     const item = event.target;
-    validation(item);
+    validateElement(item);
 });
 
 const fields = [
@@ -50,7 +50,7 @@ const fields = [
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     fields.forEach(function (item) {
-        validation(item);
+        validateElement(item);
     });
 });
 
@@ -65,7 +65,7 @@ function validation(refranceElement, className) {
     }
 }
 
-function validation(item) {
+function validateElement(item) {
     if (item.name === "company-size-input") {
         validation(item, "company-size-error");
     } else {
